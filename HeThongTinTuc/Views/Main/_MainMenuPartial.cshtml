@@ -1,0 +1,6 @@
+﻿<ul class="nav navbar-nav">
+    @foreach(var i in (List<chuyenmuc>)ViewBag.chuyenmuc)
+    {
+        <li class="nav-link"> <a asp-controller="Main" asp-action="NewsIndex" >@i.tenchuyenmuc</a></li>
+    }
+</ul>

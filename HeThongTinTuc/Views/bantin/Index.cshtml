@@ -1,0 +1,111 @@
+﻿@model IEnumerable<HeThongTinTuc.Models.bantin>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-8 my-3">
+        <h2 class="text-primary">Danh Sách Bản Tin</h2>
+    </div>
+    <div class="col-4 my-3">
+        <div class="row ">
+            @using (Html.BeginForm("Index", "bantin"))
+            {
+                <p class="fsearch input-group m-1 p-1">
+                    @Html.TextBox("Searching", "", new { @class = "fs border-primary rounded-left" })
+                    <button class="btn btn-primary" type="submit">Tìm Kiếm</button>
+                </p>
+            }
+        </div>
+    </div>
+</div>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-info">Create New</a>
+</p>
+<table class="table" style="border: 1px">
+    <thead>
+        <tr class="text-dark text-center" style="background-color:yellow">
+            <th width="2%">
+                @Html.DisplayNameFor(model => model.tieude)
+            </th >
+            <th width="3%">
+                @Html.DisplayNameFor(model => model.tomtat)
+            </th>
+            <th >
+                @Html.DisplayNameFor(model => model.noidung)
+            </th>
+            <th width="8%">
+                @Html.DisplayNameFor(model => model.ngaydang)
+            </th>
+            <th width="2%">
+                @Html.DisplayNameFor(model => model.nguoidang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hinhanh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tieudehinh)
+            </th>
+            <th width="3%">
+                @Html.DisplayNameFor(model => model.luotxem)
+            </th>
+            <th width="3%">
+                @Html.DisplayNameFor(model => model.noibat)
+            </th>
+            <th width="3%">
+                @Html.DisplayNameFor(model => model.kichhoat)
+            </th>
+            <th width="7%">
+                @Html.DisplayNameFor(model => model.chuyenmuc)
+            </th>
+            <th width="5%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tieude)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tomtat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.noidung)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ngaydang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nguoidang)
+                </td>
+                <td>
+                    <img src="~/images/@Html.DisplayFor(modelItem => item.hinhanh)" width="50" class="img-thumbnail" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tieudehinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.luotxem)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.noibat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.kichhoat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.chuyenmuc.tenchuyenmuc)
+                </td>
+                <td>
+                    <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@item.bantinid">Edit</a>
+                    <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.bantinid">Details</a>
+                    <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.bantinid">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

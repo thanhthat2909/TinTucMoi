@@ -1,0 +1,40 @@
+﻿@model HeThongTinTuc.Models.bantin
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-primary">Chi Tiết Bản Tin</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dd class="col-sm-12">
+            @Html.DisplayFor(model => model.tieude)
+        </dd>
+
+        <dd class="col-sm-12">
+            @Html.DisplayFor(model => model.tomtat)
+        </dd>
+        <dd class="col-sm-12">
+            @Html.DisplayFor(model => model.ngaydang)
+        </dd>
+        <dd class="col-sm-12 text-center">
+            <img src="~/images/@Html.DisplayFor(model => model.hinhanh)" />
+        </dd>
+        <dd class="col-sm-12">
+            @Html.DisplayFor(model => model.tieudehinh)
+        </dd>
+        <dd class="col-sm-12 text-justify">
+            @Html.DisplayFor(model => model.noidung)
+        </dd>
+
+        <dd class="col-sm-12">
+            @Html.DisplayFor(model => model.chuyenmuc.tenchuyenmuc)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.bantinid">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

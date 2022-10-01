@@ -1,0 +1,33 @@
+﻿@*@model IEnumerable<HeThongTinTuc.Models.chuyenmuc>*@
+
+@{
+    ViewData["Title"] = "NewsIndex";
+}
+
+<div class="row">
+    <div>
+        @foreach (var i in (List<chuyenmuc>)ViewBag.chuyenmuc)
+        {
+            @foreach (var c in (List<bantin>)ViewBag.bantin)
+            {
+                if (c.chuyenmucid == i.chuyenmucid)
+                {
+                    <div class="rounded m-3 p-3 shadow">
+                        <h5 class="text-primary">@c.tieude</h5>
+                        <p class="text-muted">@c.ngaydang</p>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img src="~/images/@c.hinhanh" class="img-thumbnail" />
+                            </div>
+                            <div class="col">
+                                <p class="text-justify">@c.tomtat</p>
+                                <p class="text-end"><a asp-action="Details" asp-route-id="@c.bantinid">Chi tiết</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                }
+
+            }
+    </div>
+</div>
